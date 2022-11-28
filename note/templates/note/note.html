@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-section">
+
+    {% if form %}
+    <form method="POST">
+        <legend class="border-bottom mb-2 pb-2">{{ action }} Note</legend>
+        {% include 'snippets/form.html' %}
+        <button class="btn btn-outline-info" type="submit">{{ action }}</button>
+        {% if action.lower == 'update' %}
+        <a href="{% url 'note:note-delete' note_id=note.id %}" class="btn btn-danger">Delete Note</a>
+        {% endif %}
+    </form>
+    {% endif %}
+</div>
+{% endblock content %}

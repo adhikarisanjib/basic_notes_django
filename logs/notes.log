@@ -1,0 +1,24 @@
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5964
+Unauthorized: /api/notes/
+"GET /api/notes/ HTTP/1.1" 401 27
+Unauthorized: /api/notes/
+"GET /api/notes/ HTTP/1.1" 401 27
+Unauthorized: /api/notes/
+"GET /api/notes/ HTTP/1.1" 401 27
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5964
+Unauthorized: /api/notes/
+Unauthorized: /api/account/
+"GET /api/notes/ HTTP/1.1" 401 27
+"GET /api/account/ HTTP/1.1" 401 27
+Unauthorized: /api/notes/
+"GET /api/notes/ HTTP/1.1" 401 27
+Unauthorized: /api/notes/
+"GET /api/notes/ HTTP/1.1" 401 27
+Bad Request: /api/login/
+"POST /api/login/ HTTP/1.1" 400 68
+Bad Request: /api/login/
+"POST /api/login/ HTTP/1.1" 400 68
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5964

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-section">
+    <p class="border-bottom pb-4">Are you sure, You want to delete this note {{ note.title }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a class="btn btn-secondary" href="{% url 'note:note' note_id=note.id %}">Cancel</a>
+    </form>
+</div>
+{% endblock content %}

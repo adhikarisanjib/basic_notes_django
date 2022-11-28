@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load temptags %}
+
+{% block content %}
+<div class="content-section my-auto">
+    {% if request.user.is_authenticated %}
+    <div class="d-flex my-2 pb-2 border-bottom">
+        <a class="btn btn-outline-info mx-2" href="{% url 'note:note' %}">Add Note</a>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="noteQuery" placeholder="Search Note">
+        </form>
+    </div>
+    {% if notes %}
+    <a href="{% url 'home' %}">
+        <h3 class="my-4 pb-1 border-bottom">Notes</h3>
+    </a>
+    {% for note in notes %}
+    <div class="border shadow-sm my-2 rounded">
+        <a class="my-1" href="{% url 'note:note' note_id=note.id %}">
+            <p class="m-2">{{ note.title }}</p>
+        </a>
+        <a class="my-1" href="{% url 'note:note' note_id=note.id %}">
+            <p class="m-2">{{ note.body|bodySlice }}</p>
+        </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p class="my-0">Seems like you do not have any note. Try creating one. <a href="{% url 'note:note' %}"><strong>Add Note</strong></a></p>
+    {% endif %}
+
+    {% else %}
+    <p class="my-0">Try creating your account if you are new here. <a href="{% url 'account:register' %}"><strong>Register</strong></a></p>
+    <p class="my-0">If you already have an account. Login to view your notes. <a href="{% url 'account:login' %}"><strong>Login</strong></a></p>
+    {% endif %}
+
+</div>
+{% endblock content %}
